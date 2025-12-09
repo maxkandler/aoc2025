@@ -23,10 +23,10 @@ for (let i = 0; i < junctions.length; i++) {
   circuits.push([junctions[i].join(",")]);
 }
 
-distances.sort((a, b) => a.distance - b.distance);
+distances.sort((a, b) => b.distance - a.distance);
 
 for (let i = 0; i < 1000; i++) {
-  const connection = distances.shift();
+  const connection = distances.pop();
   makeConnections(connection, circuits);
 }
 
@@ -39,7 +39,7 @@ const part1 =
 
 let connection;
 while (circuits.length > 1) {
-  connection = distances.shift();
+  connection = distances.pop();
   makeConnections(connection, circuits);
 }
 
